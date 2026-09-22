@@ -597,11 +597,11 @@ tab_scoring <- bind_rows(
         c("0","1","2","3","4"),
         c("None","Primary","Secondary","Higher Secondary","Post-secondary")),
   
-  block("Decision about expensive items", "dec_expensive", c("0","1"), c("Otherwise","She participates")),
-  block("Decision about buying appliances", "dec_dur",      c("0","1"), c("Otherwise","She participates")),
-  block("Decision about stove and fuel",   "dec_stove",    c("0","1"), c("Otherwise","She participates")),
-  block("Needs to ask for permission about buying herself clothes", "dec_clothes", c("0","1"), c("Usually/Always","Never/Rarely")),
-  block("Needs to ask for permission about buying at market",       "dec_market",  c("0","1"), c("Usually/Always","Never/Rarely"))
+block("Decision about expensive items", "dec_expensive", c("1","0"), c("She participates","Otherwise")),
+block("Decision about buying appliances", "dec_dur",      c("1","0"), c("She participates","Otherwise")),
+block("Decision about stove and fuel",   "dec_stove",    c("1","0"), c("She participates","Otherwise")),
+block("Needs to ask for permission about buying herself clothes", "dec_clothes", c("1","0"), c("Never/Rarely","Usually/Always")),
+block("Needs to ask for permission about buying at market",       "dec_market",  c("1","0"), c("Never/Rarely","Usually/Always"))
 )
 
 # 4) Lines in table
@@ -672,6 +672,8 @@ print(ft_eigen_1)
 
 # "Retained factor" bold
 pca_eigs_df$Variable <- "\\textbf{Retained factor}"
+colnames(pca_eigs_df) <- c("", "Eigenvalue", "Proportion of variance explained")
+
 
 my_xtable <- xtable(
   pca_eigs_df,
@@ -682,9 +684,10 @@ my_xtable <- xtable(
 print(
   my_xtable,
   include.rownames = FALSE,
-  include.colnames = FALSE,
+  include.colnames = TRUE,
   sanitize.text.function = identity,
-  hline.after = c(-1, nrow(pca_eigs_df)),   # only top and bottom lines
+  sanitize.colnames.function = function(x) paste0("\\textbf{", x, "}"),
+  hline.after = c(-1, 0, nrow(pca_eigs_df)),   # only top and bottom lines
   caption.placement = "top",
   file = file.path(out_dir, "Decision_eigenvalues.tex")
 )
@@ -1109,6 +1112,7 @@ print(ft_eigen_wealth)
 
 eigenvalues_df_wealth_ltx <- eigenvalues_df_wealth
 eigenvalues_df_wealth_ltx$Variable <- "\\textbf{Retained factor}"
+colnames(eigenvalues_df_wealth_ltx) <- c("", "Eigenvalue", "Proportion of variance explained")
 
 xt <- xtable(
   eigenvalues_df_wealth_ltx,
@@ -1120,9 +1124,10 @@ xt <- xtable(
 print(
   xt,
   include.rownames = FALSE,
-  include.colnames = FALSE,
+  include.colnames = TRUE,
   sanitize.text.function = identity,
-  hline.after = c(-1, nrow(eigenvalues_df_wealth_ltx)),  # only top & bottom line
+  sanitize.colnames.function = function(x) paste0("\\textbf{", x, "}"),
+  hline.after = c(-1, 0, nrow(eigenvalues_df_wealth_ltx)),  # only top & bottom line
   caption.placement = "top",
   file = file.path(out_dir, "Wealth_eigen.tex")
 )

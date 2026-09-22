@@ -35,6 +35,9 @@ upv_items <- read_excel(here::here("Qual_data","Raw",
 upv_items <- upv_items %>%
   distinct(`Paragraph ID`, .keep_all = TRUE)
 
+# One paragraph in the source data has item name "0" (no corresponding UPVG card)
+upv_items <- upv_items %>% filter(`Item Name` != "0")
+
 message("Rows after reducing to paragraph level: ", nrow(upv_items))
 
 

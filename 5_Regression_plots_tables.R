@@ -505,13 +505,13 @@ write_control_tex <- function(var_name, file, caption, label) {
 write_control_tex(
   "male_edu_category",
   file    = file.path(out_dir, "control_male_edu.tex"),
-  caption = "Association between highest education of a man in the household and appliance ownership across devices (odds ratios for logit/conditional logit and incidence rate ratios for Poisson, with 95\\% confidence intervals). Estimates from weighted models with LGA-clustered standard errors; specification without the total daily electricity access control. Poisson models are estimated only for appliances with available unit counts; remaining cells are marked ``---''. Coefficients of control variables are reported for transparency and are not interpreted causally. $^{+}p<.1$, $^{*}p<.05$, $^{**}p<.01$, $^{***}p<.001$.",
+  caption = "Association between highest education of a man in the household and appliance ownership across devices (odds ratios for logit/conditional logit and incidence rate ratios for Poisson, with 95\\% confidence intervals). Estimates from weighted models with LGA-clustered standard errors; specification without the total daily electricity access control. Poisson models are estimated only for appliances with available unit counts; remaining cells are marked \\mbox{``---''}. Coefficients of control variables are reported for transparency and are not interpreted causally. $^{+}p<.1$, $^{*}p<.05$, $^{**}p<.01$, $^{***}p<.001$.",
   label   = "sup:tab:control_male_edu"
 )
 
 write_control_tex(
   "wealth",
   file    = file.path(out_dir, "control_wealth.tex"),
-  caption = "Association between the household wealth index and appliance ownership across devices (odds ratios for logit/conditional logit and incidence rate ratios for Poisson, with 95\\% confidence intervals). Estimates from weighted models with LGA-clustered standard errors; specification without the total daily electricity access control. Poisson models are estimated only for appliances with available unit counts; remaining cells are marked ``---''. Coefficients of control variables are reported for transparency and are not interpreted causally. $^{+}p<.1$, $^{*}p<.05$, $^{**}p<.01$, $^{***}p<.001$.",
+  caption = "Association between the household wealth index and appliance ownership across devices (odds ratios for logit/conditional logit and incidence rate ratios for Poisson, with 95\\% confidence intervals). Estimates from weighted models with LGA-clustered standard errors; specification without the total daily electricity access control. Poisson models are estimated only for appliances with available unit counts; remaining cells are marked \\mbox{``---''}. Coefficients of control variables are reported for transparency and are not interpreted causally. $^{+}p<.1$, $^{*}p<.05$, $^{**}p<.01$, $^{***}p<.001$.",
   label   = "sup:tab:control_wealth"
 )
