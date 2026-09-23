@@ -497,7 +497,7 @@ write_control_tex <- function(var_name, file, caption, label) {
     sanitize.colnames.function = function(x) paste0("\\textbf{", x, "}"),
     hline.after       = c(-1, 0, nrow(df)),
     floating          = TRUE,
-    table.placement   = "!htbp",
+    table.placement   = "H",
     caption.placement = "top"
   )
 }

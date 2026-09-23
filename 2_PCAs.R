@@ -482,7 +482,7 @@ print(
   sanitize.text.function = identity,         
   hline.after = sort(unique(c(-1, hline_after))),                 
   floating = TRUE,                          
-  table.placement = "!htbp",
+  table.placement = "H",
   caption.placement = "top",
   align = c("l", "l", "r"),                  
   file = file.path(out_dir, "Decision_descriptives_weighted.tex")
@@ -627,7 +627,7 @@ print(
   sanitize.text.function = identity,
   hline.after = hline_after,
   floating = TRUE,
-  table.placement = "!htbp",
+  table.placement = "H",
   caption.placement = "top",
   align = c("l","l","r"),
   file = file.path(out_dir, "Decision_scoringcoeff.tex")
@@ -689,6 +689,7 @@ print(
   sanitize.colnames.function = function(x) paste0("\\textbf{", x, "}"),
   hline.after = c(-1, 0, nrow(pca_eigs_df)),   # only top and bottom lines
   caption.placement = "top",
+  table.placement = "H",
   file = file.path(out_dir, "Decision_eigenvalues.tex")
 )
 
@@ -1011,7 +1012,7 @@ print(
   sanitize.text.function = identity,
   hline.after = hline_after,
   floating = TRUE,
-  table.placement = "!htbp",
+  table.placement = "H",
   caption.placement = "top",
   align = c("l", "l", "r"),
   file = file.path(out_dir, "Wealth_descriptives_weighted.tex")
@@ -1063,7 +1064,7 @@ print(
   sanitize.text.function = identity,
   hline.after = hline_after,
   floating = TRUE,
-  table.placement = "!htbp",
+  table.placement = "H",
   caption.placement = "top",
   align = c("l","l","r"),
   file = file.path(out_dir, "Wealth_loadings.tex")
@@ -1129,6 +1130,7 @@ print(
   sanitize.colnames.function = function(x) paste0("\\textbf{", x, "}"),
   hline.after = c(-1, 0, nrow(eigenvalues_df_wealth_ltx)),  # only top & bottom line
   caption.placement = "top",
+  table.placement = "H",
   file = file.path(out_dir, "Wealth_eigen.tex")
 )
 
