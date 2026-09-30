@@ -92,6 +92,8 @@ aggregated_items <- aggregate(
   FUN  = function(x) sum(x, na.rm = TRUE)
 )
 
+# Round to avoid floating-point artefacts in ties (e.g. 7.8 vs 7.7999999)
+aggregated_items$item_worth <- round(aggregated_items$item_worth, 2)
 
 sorted_items <- aggregated_items[order(-aggregated_items$item_worth, 
                                        aggregated_items$Gender), ]
@@ -268,6 +270,9 @@ aggregated_items_group <- aggregate(item_worth ~ `Item Name` + `Group Type`,
                                     data = upv_group,
                                     FUN   = sum, na.rm = TRUE)
 
+# Round to avoid floating-point artefacts in ties (e.g. 7.8 vs 7.7999999)
+aggregated_items_group$item_worth <- round(aggregated_items_group$item_worth, 2)
+
 # sort for worth
 aggregated_items_group <- aggregated_items_group[
   order(-aggregated_items_group$item_worth,
@@ -442,5 +447,4 @@ print(group_item_plot)
 
 ggsave(file.path(out_dir, "group_item_plot.jpg"), 
        plot = group_item_plot, width = 8, height = 6, dpi = 300)
-
 
